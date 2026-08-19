@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Mary Beddings | Your Home of Comfort</title>
+  
+  <!-- Site Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛏️</text></svg>">
+
+  <!-- Typography: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-cream: #FAF8F5;
+      --bg-surface: #FFFFFF;
+      --bg-soft-sand: #F3EFEA;
+      --text-main: #2A2421;
+      --text-muted: #6E6761;
+      --accent-rose: #8C3A5C;
+      --accent-terracotta: #C86D51;
+      --accent-gold: #C5A059;
+      --border-subtle: rgba(42, 36, 33, 0.08);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 20px 40px rgba(140, 58, 92, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    /* Dark Theme Variables Override (Default) */
+    [data-theme="dark"] {
+      --bg-cream: #121017;
+      --bg-surface: #1E1924;
+      --bg-soft-sand: #282230;
+      --text-main: #F5F0F6;
+      --text-muted: #B3A8B8;
+      --border-subtle: rgba(245, 240, 246, 0.12);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 20px 40px rgba(140, 58, 92, 0.3);
+    }
+
+    /* Scrollbar Styling */
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-rose) var(--bg-cream);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-rose);
+      border-radius: 10px;
+      border: 2px solid var(--bg-cream);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-terracotta);
+    }
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ==========================================================================
+       2. REUSABLE UI COMPONENTS
+       ========================================================================== */
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(200, 109, 81, 0.1);
+      color: var(--accent-terracotta);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-rose);
+      color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(140, 58, 92, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: #722E4A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(140, 58, 92, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--text-main);
+      color: var(--bg-surface);
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: #FFFFFF;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1DA851;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       3. ANNOUNCEMENT & NAVIGATION
+       ========================================================================== */
+    .announcement-bar {
+      background-color: var(--text-main);
+      color: var(--bg-cream);
+      font-size: 0.825rem;
+      padding: 8px 0;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .announcement-bar span {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-cream);
+      opacity: 0.95;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .logo-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--accent-rose);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .logo-tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent-rose);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: 50px;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-rose);
+      color: var(--accent-rose);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 60px 0 100px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+      color: var(--accent-rose);
+      font-style: italic;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-gallery {
+      position: relative;
+    }
+
+    .hero-main-card {
+      background: var(--bg-surface);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .hero-main-card img {
+      border-radius: var(--radius-md);
+      width: 100%;
+      height: 480px;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--bg-surface);
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-hover);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-floating-badge i {
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+    }
+
+    .hero-floating-badge div h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .hero-floating-badge div p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       5. TRUST SIGNALS STRIP
+       ========================================================================== */
+    .trust-strip {
+      background-color: var(--bg-surface);
+      border-y: 1px solid var(--border-subtle);
+      padding: 30px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-soft-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-rose);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .trust-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .trust-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       6. CATALOG / PRODUCT CATEGORIES
+       ========================================================================== */
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 36px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-rose) var(--bg-surface);
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .filter-tabs::-webkit-scrollbar-track {
+      background: var(--bg-surface);
+      border-radius: 10px;
+    }
+
+    .filter-tabs::-webkit-scrollbar-thumb {
+      background: var(--accent-rose);
+      border-radius: 10px;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-smooth);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background-color: var(--accent-rose);
+      color: #FFFFFF;
+      border-color: var(--accent-rose);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background-color: var(--bg-soft-sand);
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      transition: var(--transition-smooth);
+    }
+
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.06);
+    }
+
+    .tag-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--bg-surface);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-terracotta);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--bg-surface);
+      outline: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .swatch:hover, .swatch.active {
+      transform: scale(1.2);
+      outline-color: var(--accent-rose);
+    }
+
+    .product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .price-tag {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       7. CONTACT & LOCATION SECTION
+       ========================================================================== */
+    .contact-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      border-radius: var(--radius-lg);
+      padding: 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .location-badge {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .location-badge i {
+      color: var(--accent-gold);
+      margin-top: 4px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-soft-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+
+    .social-icon:hover {
+      background: var(--accent-rose);
+      color: #FFFFFF;
+      transform: translateY(-3px);
+    }
+
+    /* ==========================================================================
+       8. THEMED CONTACT / PHONE MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+    }
+
+    .modal-overlay.show {
+      display: block;
+    }
+
+    .contact-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      width: 90%;
+      max-width: 440px;
+      z-index: 2001;
+      box-shadow: var(--shadow-hover);
+      display: none;
+      transition: var(--transition-smooth);
+      text-align: center;
+      color: var(--text-main);
+    }
+
+    .contact-modal.show {
+      display: block;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--accent-rose);
+    }
+
+    .modal-icon {
+      font-size: 2.8rem;
+      color: #25D366;
+      margin-bottom: 14px;
+    }
+
+    .phone-number-box {
+      background: var(--bg-soft-sand);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-rose);
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .hero-grid, .contact-card {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>ROSE MARY BEDDINGS</span> — Direct Showroom Visit Available in Kasubi | Direct Contact: <span>0701 775 971</span>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">
+        <span class="logo-title">Rose Mary</span>
+        <span class="logo-tagline">Beddings & Home</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#catalog">Collection</a>
+        <a href="#contact">Location & Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme">
+          <i class="fa-solid fa-sun" id="themeIcon"></i>
+          <span id="themeLabel">Light</span>
+        </button>
+
+        <button class="btn btn-whatsapp" onclick="openContactModal()">
+          <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge"><i class="fa-solid fa-crown"></i> Your Home of Comfort</div>
+        <h1>Sleep Better. <span>Live Comfortably.</span></h1>
+        <p>Transform your bedroom into a sanctuary with custom luxury tufted headboards, breathable cotton bed sheets, velvet curtains, plush bathrobes, and modular closets.</p>
+        <div class="hero-cta-group">
+          <a href="#catalog" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore Collection</a>
+          <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-location-dot"></i> Visit Showroom</a>
+        </div>
+      </div>
+
+      <div class="hero-gallery">
+        <div class="hero-main-card">
+          <img id="heroImage" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80" alt="Rose Mary Luxury Tufted Bed Set">
+          <div class="hero-floating-badge">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <h4>Premium Quality</h4>
+              <p>Affordable Elegance Guaranteed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Signals Strip -->
+  <div class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="trust-text">
+          <h4>Uganda-Wide Delivery</h4>
+          <p>Safe doorstep delivery</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-scissors"></i></div>
+        <div class="trust-text">
+          <h4>Custom Tailoring</h4>
+          <p>Curtains & nets fitted to size</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-store"></i></div>
+        <div class="trust-text">
+          <h4>Physical Store Visit</h4>
+          <p>Kasubi Traffic Lights, Namungoona Rd</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Product Catalog -->
+  <section class="section-padding container" id="catalog">
+    <div class="badge"><i class="fa-solid fa-layer-group"></i> Catalog</div>
+    <h2 class="section-title">Designed for Your Ultimate Comfort</h2>
+    <p class="section-subtitle">Select a category to filter through our premium home textile and bedding inventory.</p>
+
+    <!-- Filter Buttons (All Items Option Removed) -->
+    <div class="filter-tabs">
+      <button class="tab-btn active" onclick="filterProducts('bedding', event)">Bed Sheets & Duvets</button>
+      <button class="tab-btn" onclick="filterProducts('nets', event)">Mosquito Nets</button>
+      <button class="tab-btn" onclick="filterProducts('bathrobes', event)">Bathrobes & Towels</button>
+      <button class="tab-btn" onclick="filterProducts('closets', event)">Portable Closets</button>
+      <button class="tab-btn" onclick="filterProducts('curtains', event)">Curtains</button>
+    </div>
+
+    <!-- Dynamic Product Cards Grid -->
+    <div class="products-grid" id="productGrid">
+      <!-- Cards rendered via JS -->
+    </div>
+  </section>
+
+  <!-- Contact & Showroom Section -->
+  <section class="section-padding container" id="contact">
+    <div class="contact-card">
+      <div class="contact-info">
+        <h2>Visit Our Physical Store or Order Online</h2>
+        <p>Experience texture, inspect thread quality, and pick your custom fabrics directly at our showroom.</p>
+
+        <div class="location-badge">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Location Address:</strong><br>
+            Kasubi Traffic Lights after Rubis along Kasubi - Namungoona Road, Kampala, Uganda.
+          </div>
+        </div>
+
+        <div class="location-badge">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Call / WhatsApp:</strong><br>
+            0701 775 971
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Rose Mary Beddings. "Your Home of Comfort". All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Theme-Styled Contact / Phone Numbers Modal -->
+  <div class="modal-overlay" id="contactModalOverlay" onclick="closeContactModal()"></div>
+  <div class="contact-modal" id="contactModal">
+    <button class="modal-close-btn" onclick="closeContactModal()">&times;</button>
+    <i class="fa-brands fa-whatsapp modal-icon"></i>
+    <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 8px;">Order & Inquiries</h3>
+    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+      Get in touch with us directly via phone or WhatsApp to place your order or ask about custom sizes:
+    </p>
+    <div class="phone-number-box">
+      <i class="fa-solid fa-phone"></i>
+      <span>0701 775 971</span>
+    </div>
+    <div class="phone-number-box">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <span>0701 775 971</span>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // 1. PRODUCT DATABASE WITH MATCHING IMAGES PER CATEGORY
+    const products = [
+      {
+        id: 1,
+        title: "Bed sheets and Duvet",
+        category: "bedding",
+        price: "UGX 350,000",
+        image: "Res/bed sheets and duvet.webp",
+        tag: "Best Seller",
+        swatches: ["#8C3A5C", "#C5A059", "#2A2421"]
+      },
+      {
+        id: 2,
+        title: "Bed sheets",
+        category: "bedding",
+        price: "UGX 150,000",
+        image: "Res/bs.jpg",
+        tag: "Relaxable",
+        swatches: ["#FAF8F5", "#8A9A86", "#D4AF37"]
+      },
+      {
+        id: 3,
+        title: "Mosquito Net",
+        category: "nets",
+        price: "UGX 120,000",
+        image: "Res/nets.webp",
+        tag: "Protection",
+        swatches: ["#FFFFFF", "#8C3A5C", "#E0BBE4"]
+      },
+      {
+        id: 4,
+        title: "Bathrobe",
+        category: "bathrobes",
+        price: "UGX 85,000",
+        image: "Res/bathrobe.webp",
+        tag: "Hotel Quality",
+        swatches: ["#FFFFFF", "#2A2421", "#C86D51"]
+      },
+      {
+        id: 5,
+        title: "Towels",
+        category: "bathrobes",
+        price: "UGX 65,000",
+        image: "Res/towel.jpg",
+        tag: "Soft Cotton",
+        swatches: ["#FFFFFF", "#6E6761", "#C5A059"]
+      },
+      {
+        id: 6,
+        title: "Closets",
+        category: "closets",
+        price: "UGX 140,000",
+        image: "Res/closet.jpg",
+        tag: "Space Saver",
+        swatches: ["#8C3A5C", "#2A2421", "#6E6761"]
+      },
+      {
+        id: 7,
+        title: "Curtains",
+        category: "curtains",
+        price: "UGX 180,000",
+        image: "Res/curtains.jpg",
+        tag: "Custom Sizes",
+        swatches: ["#2D3A2F", "#C5A059", "#2A2421"]
+      },
+      {
+        id: 8,
+        title: "Curtains",
+        category: "curtains",
+        price: "UGX 130,000",
+        image: "Res/curtains 2.jpg",
+        swatches: ["#FFFFFF", "#FAF8F5", "#C5A059"]
+      }
+    ];
+
+    // 2. THEME TOGGLE SYSTEM
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      
+      if(newTheme === 'dark') {
+        icon.className = 'fa-solid fa-sun';
+        label.innerText = 'Light';
+      } else {
+        icon.className = 'fa-solid fa-moon';
+        label.innerText = 'Dark';
+      }
+    }
+
+    // 3. RENDER PRODUCTS
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = items.map(p => `
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <span class="tag-badge">${p.tag}</span>
+            <img src="${p.image}" alt="${p.title}">
+          </div>
+          <div class="product-details">
+            <span class="product-category">${p.category}</span>
+            <h3 class="product-title">${p.title}</h3>
+            <div class="swatches">
+              ${p.swatches.map(color => `<div class="swatch" style="background:${color}"></div>`).join('')}
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">${p.price}</span>
+              <button class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.8rem;" onclick="openContactModal()">
+                <i class="fa-brands fa-whatsapp"></i> Order
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 4. FILTER SYSTEM (DEFAULTS TO BEDDING)
+    function filterProducts(category, event) {
+      if (event) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+      }
+
+      const filtered = products.filter(p => p.category === category);
+      renderProducts(filtered);
+    }
+
+    // 5. CONTACT MODAL CONTROLS
+    function openContactModal() {
+      document.getElementById('contactModalOverlay').classList.add('show');
+      document.getElementById('contactModal').classList.add('show');
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModalOverlay').classList.remove('show');
+      document.getElementById('contactModal').classList.remove('show');
+    }
+
+    // INITIAL RENDER
+    document.addEventListener('DOMContentLoaded', () => {
+      filterProducts('bedding');
+    });
+  </script>
+</body>
+</html>
